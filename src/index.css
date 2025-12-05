@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Social Feed Design System with Warm Sunset Theme */
+
+@layer base {
+  :root {
+    /* Warm Sunset Theme - Light Mode */
+    --background: 35 100% 98%;
+    --foreground: 25 25% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 20%;
+
+    /* Sunny Orange Primary */
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 35 100% 80%;
+    --primary-dark: 20 95% 45%;
+
+    /* Warm Cream Secondary */
+    --secondary: 35 30% 94%;
+    --secondary-foreground: 25 25% 20%;
+
+    --muted: 35 25% 91%;
+    --muted-foreground: 25 15% 50%;
+
+    /* Accent Coral */
+    --accent: 12 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 91%;
+    --ring: 24 95% 53%;
+
+    --radius: 0.75rem;
+
+    /* Feed Specific Colors */
+    --feed-bg: 38 60% 96%;
+    --post-bg: 0 0% 100%;
+    --post-hover: 35 40% 98%;
+    --blur-overlay: 24 60% 50%;
+    --like-color: 12 90% 55%;
+    
+    /* Gradients */
+    --gradient-sky: linear-gradient(135deg, hsl(40 100% 85%), hsl(20 90% 70%));
+    --gradient-post: linear-gradient(145deg, hsl(0 0% 100%), hsl(35 30% 98%));
+    --gradient-blur: linear-gradient(45deg, hsla(24 95% 53% / 0.3), hsla(12 90% 55% / 0.3));
+    
+    /* Shadows */
+    --shadow-post: 0 2px 20px -5px hsl(24 50% 50% / 0.1);
+    --shadow-post-hover: 0 8px 40px -10px hsl(24 50% 50% / 0.15);
+    --shadow-blur: 0 8px 32px -8px hsl(24 95% 53% / 0.2);
+
+    --sidebar-background: 35 30% 98%;
+    --sidebar-foreground: 25 20% 26%;
+    --sidebar-primary: 25 30% 15%;
+    --sidebar-primary-foreground: 35 30% 98%;
+    --sidebar-accent: 35 25% 95%;
+    --sidebar-accent-foreground: 25 30% 15%;
+    --sidebar-border: 35 20% 90%;
+    --sidebar-ring: 24 95% 53%;
+  }
+
+  .dark {
+    /* Dark Warm Night Theme */
+    --background: 25 35% 8%;
+    --foreground: 35 40% 95%;
+
+    --card: 25 30% 12%;
+    --card-foreground: 35 40% 95%;
+
+    --popover: 25 30% 12%;
+    --popover-foreground: 35 40% 95%;
+
+    /* Bright Orange Primary for dark mode */
+    --primary: 24 95% 55%;
+    --primary-foreground: 25 35% 8%;
+    --primary-light: 35 100% 70%;
+    --primary-dark: 20 95% 45%;
+
+    /* Dark Warm Secondary */
+    --secondary: 25 25% 18%;
+    --secondary-foreground: 35 40% 95%;
+
+    --muted: 25 25% 15%;
+    --muted-foreground: 30 15% 60%;
+
+    /* Bright Coral Accent */
+    --accent: 12 90% 58%;
+    --accent-foreground: 25 35% 8%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 35 40% 95%;
+
+    --border: 25 25% 20%;
+    --input: 25 25% 18%;
+    --ring: 24 95% 55%;
+
+    /* Feed Dark Colors */
+    --feed-bg: 25 40% 6%;
+    --post-bg: 25 30% 12%;
+    --post-hover: 25 25% 15%;
+    --blur-overlay: 24 50% 40%;
+    --like-color: 12 90% 58%;
+    
+    /* Dark Gradients */
+    --gradient-sky: linear-gradient(135deg, hsl(24 95% 25%), hsl(12 90% 30%));
+    --gradient-post: linear-gradient(145deg, hsl(25 30% 12%), hsl(25 25% 15%));
+    --gradient-blur: linear-gradient(45deg, hsla(24 95% 55% / 0.4), hsla(12 90% 58% / 0.4));
+    
+    /* Dark Shadows */
+    --shadow-post: 0 2px 20px -5px hsl(0 0% 0% / 0.3);
+    --shadow-post-hover: 0 8px 40px -10px hsl(0 0% 0% / 0.4);
+    --shadow-blur: 0 8px 32px -8px hsl(24 95% 55% / 0.3);
+    --sidebar-background: 25 25% 10%;
+    --sidebar-foreground: 35 30% 95%;
+    --sidebar-primary: 24 90% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 20% 16%;
+    --sidebar-accent-foreground: 35 30% 95%;
+    --sidebar-border: 25 20% 16%;
+    --sidebar-ring: 24 95% 55%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .feed-gradient {
+    background: var(--gradient-sky);
+  }
+  
+  .post-card {
+    background: var(--gradient-post);
+    box-shadow: var(--shadow-post);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .post-card:hover {
+    box-shadow: var(--shadow-post-hover);
+    transform: translateY(-2px);
+  }
+  
+  .blur-overlay {
+    background: var(--gradient-blur);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-blur);
+  }
+  
+  .feed-bg {
+    background-color: hsl(var(--feed-bg));
+  }
+  
+  .post-bg {
+    background-color: hsl(var(--post-bg));
+  }
+  
+  .like-color {
+    color: hsl(var(--like-color));
+  }
+  
+  .text-like {
+    color: hsl(var(--like-color));
+  }
+}
